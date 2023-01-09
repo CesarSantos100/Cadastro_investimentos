@@ -47,63 +47,23 @@
         <i class="fas fa-check"></i> Voltar a tela Inicial
     </a>
     <br><br><br>
-    <form id="form" action="{{url('cadastro')}}" method="POST" onsubmit=" salvarUsuario(event)">
+    <form id="form" action="{{url('cadastro')}}" method="POST" onsubmit=" salvarInvestimento(event)">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputnome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" data-tipo="nome" placeholder="Digite seu nome" required>
+                <label for="inputnome">Investimento</label>
+                <input type="text" class="form-control" id="investimento" name="investimento" data-tipo="nome" placeholder="Digite o nome do investimento" required>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputemail">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" required="">
+                <label for="inputemail">Banco</label>
+                <input type="banco" class="form-control" id="banco" name="banco" placeholder="Digite o nome do banco" required="">
             </div>
-        </div>
-
-        <h1>Informações pessoais</h1>
-        <hr><br>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputdata">Data de nascimento</label>
-                <input type="date" class="form-control" id="dt_nascimento" name="dt_nascimento" placeholder="" required="">
-            </div>
-
-            <div class="form-group col-md-4">
-                <label for="inputcpf">CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="000.000.000-00" required="">
-            </div>
-        </div>
-
-        <h1>Endereço</h1>
-        <hr><br>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="cep">CEP</label>
-                <input name="cep" type="text" id="cep" name="cep" class="form-control" onblur="pesquisacep(this.value);" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="rua">RUA</label>
-                <input name="rua" type="text" id="rua" name="rua" class="form-control" placeholder="">
-            </div>
+            
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="bairro">Bairro</label>
-                <input name="bairro" type="text" id="bairro" name="bairro" class="form-control" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="cidade">Cidade</label>
-                <input name="cidade" type="text" id="cidade" name="cidade" class="form-control" placeholder="">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="estado">ESTADO</label>
-                <input name="uf" type="text" id="uf" name="uf" class="form-control" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="complemento">Complemento</label>
-                <input name="complemento" type="text" id="complemento" name="complemento" class="form-control" placeholder="" required>
+        <div class="form-group col-md-4">
+                <label for="inputnome">Valor do investimento</label>
+                <input type="text" class="form-control" id="valor_investimento" name="valor_investimento" data-tipo="valor_investimento" placeholder="Digite o valor investido" required>
             </div>
         </div>
 
@@ -122,7 +82,7 @@
     <script>
         var form = document.getElementById('form');
 
-        function salvarUsuario(event) {
+        function salvarInvestimento(event) {
             event.preventDefault();
 
             fetch("{{url('cadastro')}}", {
@@ -132,7 +92,7 @@
                 })
                 //.then(response => response.json())
                 .then(response => {
-                    alert('Usuario salvo com sucesso');
+                    alert('Investimento salvo com sucesso');
                     if (response.error) {
                         mostrarError(response.error)
                         return false;

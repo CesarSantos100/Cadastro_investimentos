@@ -8,18 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
 
-    protected $table = 'usuario';
+    protected $table = 'investimento';
 
     protected $fillable = [
-        'nome',
-        'email',
-        'dt_nascimento',
-        'cpf',
-        'cep',
-        'rua',
-        'bairro',
-        'cidade',
-        'uf',
-        'complemento'
+        'investimento',
+        'banco',
+        'valor_investimento'
+        
     ];
 }

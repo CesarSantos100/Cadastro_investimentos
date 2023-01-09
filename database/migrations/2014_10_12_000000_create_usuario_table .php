@@ -13,18 +13,11 @@ class CreateUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
+        Schema::create('investimento', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome');
-            $table->string('email');
-            $table->string('dt_nascimento');
-            $table->integer('cpf');
-            $table->integer('cep');
-            $table->string('rua');
-            $table->string('bairro');
-            $table->string('cidade');
-            $table->string('uf');
-            $table->string('complemento');
+            $table->string('investimento');
+            $table->string('banco');
+            $table->string('valor_investimento');
             $table->rememberToken();
             $table->timestamps();
         });

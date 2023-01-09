@@ -22,60 +22,22 @@
 <body>
     <form action="/editar/{{ $usuario->id}}" method="post">
        @csrf
-        <div class="form-row">
+       <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputnome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" value="{{$usuario->nome}}" placeholder="">
+                <label for="inputnome">Investimento</label>
+                <input type="text" class="form-control" id="investimento" name="investimento" value="{{$usuario->investimento}}" data-tipo="nome" placeholder="Digite o nome do investimento" required>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputemail">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{$usuario->email}}" placeholder="" required="">
+                <label for="inputemail">banco</label>
+    
+                <input type="banco" class="form-control" id="banco" name="banco" value="{{$usuario->banco}}" placeholder="Digite o nome do banco" required="">
             </div>
-        </div>
-
-        <h1>Informações pessoais</h1>
-        <hr>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputdata">Data de nascimento</label>
-                <input type="date" class="form-control" id="dt_nascimento" name="dt_nascimento" value="{{$usuario->dt_nascimento}}" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputcpf">CPF</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" value="{{$usuario->cpf}}" placeholder="">
-            </div>
-        </div>
-
-        <h1>Endereço</h1>
-        <hr>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="cep">CEP</label>
-                <input name="cep" type="text" id="cep" name="cep" value="{{$usuario->cep}}" class="form-control" onblur="pesquisacep(this.value);" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="rua">RUA</label>
-                <input name="rua" type="text" id="rua" name="rua" value="{{$usuario->rua}}" class="form-control" placeholder="">
-            </div>
+            
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="bairro">Bairro</label>
-                <input name="bairro" type="text" id="bairro" name="bairro" value="{{$usuario->bairro}}" class="form-control" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="cidade">Cidade</label>
-                <input name="cidade" type="text" id="cidade" name="cidade" value="{{$usuario->cidade}}" class="form-control" placeholder="">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="estado">ESTADO</label>
-                <input name="uf" type="text" id="uf" name="uf" value="{{$usuario->uf}}" class="form-control" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="complemento">Complemento</label>
-                <input name="complemento" type="text" id="complemento" name="complemento" value="{{$usuario->complemento}}" class="form-control" placeholder="" required>
+        <div class="form-group col-md-4">
+                <label for="inputnome">Valor do investimento</label>
+                <input type="text" class="form-control" id="valor_investimento" name="valor_investimento" value="{{$usuario->valor_investimento}}" data-tipo="valor_investimento" placeholder="Digite o valor investido" required>
             </div>
         </div>
 

@@ -23,13 +23,14 @@
 </style>
 
 <body>
-
+    
+<div class="container">
     <h1 class="mb-5">
         <div class="jumbotron">
-            Lista de Usuários Cadastrados
+            Lista de Investimentos Cadastrados
     </h1>
     <a class="btn btn-primary" href="{{'/user'}}">
-        <i class=""></i> Cadastro de Usuário
+        <i class=""></i> Cadastro de Investimento
     </a>
     @if(session('sucesso'))
     <div class="alert alert-primary" role="alert">
@@ -49,15 +50,9 @@
         <thead>
             <tr>
                
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Data de Nascimento</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Cep</th>
-                <th scope="col">Rua</th>
-                <th scope="col">Bairro</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>
+                <th scope="col">Investimento</th>
+                <th scope="col">Banco</th>
+                <th scope="col">Valor do investimento</th>
                 <th scope="col">Data da criação</th>
 
             </tr>
@@ -66,18 +61,12 @@
             @foreach($usuario as $user)
             <tr>
                 
-                <td>{{$user->nome}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{date( 'd/m/Y' , strtotime($user->dt_nascimento))}}</td>
-                <td>{{$user->cpf}}</td>
-                <td>{{$user->cep}}</td>
-                <td>{{$user->rua}}</td>
-                <td>{{$user->bairro}}</td>
-                <td>{{$user->cidade}}</td>
-                <td>{{$user->uf}}</td>
+                <td>{{$user->investimento}}</td>
+                <td>{{$user->banco}}</td>
+                <td>{{$user->valor_investimento}}</td>
                 <td>{{date ( 'd/m/y' , strtotime ($user->created_at))}}</td>
                 <td>
-                    <form method="post" action="/excluir/{{ $user->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{$user->nome}}  ?')">
+                    <form method="post" action="/excluir/{{ $user->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{$user->investimento}}  ?')">
 
                         <a class="btn btn-warning btn-sm" href="{{url('editar/'.$user->id)}}"><i class="fas fa-edit"></i></a>
                         @csrf

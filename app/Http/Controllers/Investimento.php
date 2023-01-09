@@ -16,7 +16,6 @@ class Investimento extends Controller
 
 
 
-
     public function index(Request $request)
     {
         $usuario = usuario::all();
@@ -38,26 +37,19 @@ class Investimento extends Controller
     }
 
     public function create(Request $request)
-    {
-         {
+    { {
 
             $usuario = Usuario::create(
                 [
-                    'nome' => $request->nome,
-                    'email' => $request->email,
-                    'dt_nascimento' => $request->dt_nascimento,
-                    'cpf' => $request->cpf,
-                    'cep' => $request->cep,
-                    'rua' => $request->rua,
-                    'bairro' => $request->bairro,
-                    'cidade' => $request->cidade,
-                    'uf' => $request->uf,
-                    'complemento' => $request->complemento
+                    'investimento' => $request->investimento,
+                    'banco' => $request->banco,
+                    'valor_investimento' => $request->valor_investimento,
+
                 ]
 
             );
         }
-        return redirect('/')->with('sucesso', 'Usuário criado com sucesso.');
+        return redirect('/')->with('sucesso', 'Investimento criado com sucesso.');
     }
 
 
@@ -77,19 +69,11 @@ class Investimento extends Controller
 
         $usuario = Usuario::find($id);
         $usuario->update([
-            'nome' => $request->nome,
-            'email' => $request->email,
-            'dt_nascimento' => $request->dt_nascimento,
-            'cpf' => $request->cpf,
-            'cep' => $request->cep,
-            'rua' => $request->rua,
-            'bairro' => $request->bairro,
-            'cidade' => $request->cidade,
-            'uf' => $request->uf,
-            'complemento' => $request->complemento
-
+            'investimento' => $request->investimento,
+            'banco' => $request->banco,
+            'valor_investimento' => $request->valor_investimento,
         ]);
-        return redirect('/')->with('sucesso', 'Usuário alterado com sucesso');;
+        return redirect('/')->with('sucesso', 'Investimento alterado com sucesso');;
     }
 
     public function delete(request $request, $id)
@@ -104,6 +88,6 @@ class Investimento extends Controller
         //Request::session()->flash('sucesso'.$usuario->nome.' foi removido com sucesso!');
 
 
-        return redirect('/')->with('sucesso', 'Usuário Excluido com sucesso');
+        return redirect('/')->with('sucesso', 'Investimento Excluido com sucesso');
     }
 }
