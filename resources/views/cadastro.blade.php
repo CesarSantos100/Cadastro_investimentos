@@ -17,7 +17,8 @@
     #botao {
         text-align: center;
     }
-    #nome{
+
+    #nome {
         text-transform: uppercase;
     }
 </style>
@@ -51,19 +52,19 @@
         @csrf
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputnome">Investimento</label>
-                <input type="text" class="form-control" id="investimento" name="investimento" data-tipo="nome" placeholder="Digite o nome do investimento" required>
+                <label for="inputnome">Produto ou Serviço</label>
+                <input type="text" class="form-control" id="investimento" name="investimento" data-tipo="nome" placeholder="Digite o nome do produto ou serviço" required>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputemail">Banco</label>
-                <input type="banco" class="form-control" id="banco" name="banco" placeholder="Digite o nome do banco" required="">
+                <label for="inputemail">Data da compra</label>
+                <input type="text" class="form-control" id="banco" name="banco" placeholder="Digite a data da compra" required="">
             </div>
-            
+
         </div>
         <div class="form-row">
-        <div class="form-group col-md-4">
-                <label for="inputnome">Valor do investimento</label>
-                <input type="text" class="form-control" id="valor_investimento" name="valor_investimento" data-tipo="valor_investimento" placeholder="Digite o valor investido" required>
+            <div class="form-group col-md-4">
+                <label for="inputnome">Valor Gasto</label>
+                <input type="text" class="form-control" id="valor_investimento" name="valor_investimento" data-tipo="valor_investimento" placeholder="Digite o valor Gasto" required>
             </div>
         </div>
 
@@ -92,7 +93,7 @@
                 })
                 //.then(response => response.json())
                 .then(response => {
-                    alert('Investimento salvo com sucesso');
+                    alert('Produto ou serviço salvo com sucesso');
                     if (response.error) {
                         mostrarError(response.error)
                         return false;

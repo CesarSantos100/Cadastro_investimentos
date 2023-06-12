@@ -14,20 +14,18 @@ class Investimento extends Controller
         return view('auth');
     }
 
-
-
     public function index(Request $request)
     {
         $usuario = usuario::all();
 
-        return view('usuarios')->with(
-            [
-                'usuario' => $usuario,
+       // return view('usuarios')->with(
+           // [
+            //    'usuario' => $usuario,
 
-            ]
+           // ]
 
-        );
-        //return view('usuarios', compact('usuario'));
+        //);
+        return view('usuarios', compact('usuario'));
     }
 
     public function lista(Request $request)
@@ -51,9 +49,6 @@ class Investimento extends Controller
         }
         return redirect('/')->with('sucesso', 'Investimento criado com sucesso.');
     }
-
-
-
 
     public function editar($id)
     {

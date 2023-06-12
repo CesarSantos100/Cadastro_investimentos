@@ -23,72 +23,74 @@
 </style>
 
 <body>
-    
-<div class="container">
-    <h1 class="mb-5">
-        <div class="jumbotron">
-            Lista de Investimentos Cadastrados
-    </h1>
-    <a class="btn btn-primary" href="{{'/user'}}">
-        <i class=""></i> Cadastro de Investimento
-    </a>
-    @if(session('sucesso'))
-    <div class="alert alert-primary" role="alert">
-        {{session('sucesso')}}
-    </div>
-    @endif
 
-    @if(session('erro'))
-    <div class="alert alert-danger" role="alert">
-        {{session('erro')}}
-    </div>
-    @endif
-    @csrf
+    <div class="container">
+        <h1 class="mb-5">
+            <div class="jumbotron">
+                Lista de Produtos Cadastrados
+        </h1>
+        <a class="btn btn-primary" href="{{'/user'}}">
+            <i class=""></i> Cadastro de Produtos e serviços para a obra
+        </a>
 
 
-    <table class="table">
-        <thead>
-            <tr>
-               
-                <th scope="col">Investimento</th>
-                <th scope="col">Banco</th>
-                <th scope="col">Valor do investimento</th>
-                <th scope="col">Data da criação</th>
+        @if(session('sucesso'))
+        <div class="alert alert-primary" role="alert">
+            {{session('sucesso')}}
+        </div>
+        @endif
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($usuario as $user)
-            <tr>
-                
-                <td>{{$user->investimento}}</td>
-                <td>{{$user->banco}}</td>
-                <td>{{$user->valor_investimento}}</td>
-                <td>{{date ( 'd/m/y' , strtotime ($user->created_at))}}</td>
-                <td>
-                    <form method="post" action="/excluir/{{ $user->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{$user->investimento}}  ?')">
-
-                        <a class="btn btn-warning btn-sm" href="{{url('editar/'.$user->id)}}"><i class="fas fa-edit"></i></a>
-                        @csrf
+        @if(session('erro'))
+        <div class="alert alert-danger" role="alert">
+            {{session('erro')}}
+        </div>
+        @endif
+        @csrf
 
 
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Produto ou serviço</th>
+                    <th scope="col">Data da compra</th>
+                    <th scope="col">Valor Gasto</th>
+                    <th scope="col">Data da criação</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($usuario as $user)
+                <tr>
+
+                    <td>{{$user->investimento}}</td>
+                    <td>{{$user->banco}}</td>
+                    <td>{{$user->valor_investimento}}</td>
+                    <td>{{date ( 'd/m/y' , strtotime ($user->created_at))}}</td>
+                    <td>
+                        <form method="post" action="/excluir/{{ $user->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{$user->investimento}}  ?')">
+
+                            <a class="btn btn-warning btn-sm" href="{{url('editar/'.$user->id)}}"><i class="fas fa-edit"></i></a>
+                            @csrf
 
 
-                        <button type="submit" class="btn btn-danger btn-sm">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-
-    </table>
-
-    <script>
 
 
-    </script>
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+
+        </table>
+
+        <script>
+
+
+        </script>
 
 
 </body>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Investimento;
+use App\Http\Controllers\pdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,9 @@ Route::post('/editar/{id}', [Investimento::class, 'store']);
 //Route::post('salvar', [Investimento::class, 'salvar']);
 Route::post('/excluir/{id}', [Investimento::class, 'delete']);
 Route::get('/auth', [Investimento::class, 'login']);
+Route::get('/pdf', [pdfController::class, 'geraPdf']);
+
+
+
 
 

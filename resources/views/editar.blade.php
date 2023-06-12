@@ -21,23 +21,23 @@
 
 <body>
     <form action="/editar/{{ $usuario->id}}" method="post">
-       @csrf
-       <div class="form-row">
+        @csrf
+        <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputnome">Investimento</label>
-                <input type="text" class="form-control" id="investimento" name="investimento" value="{{$usuario->investimento}}" data-tipo="nome" placeholder="Digite o nome do investimento" required>
+                <label for="inputnome">Produto ou Serviço</label>
+                <input type="text" class="form-control" id="investimento" name="investimento" value="{{$usuario->investimento}}" data-tipo="nome" placeholder="Digite o nome do produto ou serviço" required>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputemail">banco</label>
-    
-                <input type="banco" class="form-control" id="banco" name="banco" value="{{$usuario->banco}}" placeholder="Digite o nome do banco" required="">
+                <label for="inputemail">Data da compra</label>
+
+                <input type="text" class="form-control" id="banco" name="banco" value="{{$usuario->banco}}" placeholder="Digite a data da compra" required="">
             </div>
-            
+
         </div>
         <div class="form-row">
-        <div class="form-group col-md-4">
-                <label for="inputnome">Valor do investimento</label>
-                <input type="text" class="form-control" id="valor_investimento" name="valor_investimento" value="{{$usuario->valor_investimento}}" data-tipo="valor_investimento" placeholder="Digite o valor investido" required>
+            <div class="form-group col-md-4">
+                <label for="inputnome">Valor Gasto</label>
+                <input type="text" class="form-control" id="valor_investimento" name="valor_investimento" value="{{$usuario->valor_investimento}}" data-tipo="valor_investimento" placeholder="Digite o valor Gasto" required>
             </div>
         </div>
 
@@ -47,12 +47,11 @@
                 <i class="fas fa-check"></i> Cancelar
             </a>
         </div>
-       
+
 
     </form>
 
     <script>
         VMasker(document.getElementById("cpf")).maskPattern("999.999.999-99");
-
     </script>
 </body>
